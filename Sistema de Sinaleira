@@ -1,0 +1,40 @@
+int ledG = 4;
+int ledY = 3;
+int ledR = 2;
+int ledGreenBi = 6;
+int ledRedBi = 5;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(ledG, OUTPUT);
+  pinMode(ledY, OUTPUT);
+  pinMode(ledR, OUTPUT);
+  pinMode(ledRedBi, OUTPUT);
+  pinMode(ledGreenBi, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  //automóveis
+  digitalWrite(ledRedBi, HIGH);
+  digitalWrite(ledR, LOW);
+  digitalWrite(ledG, HIGH);
+  delay(15000);
+  digitalWrite(ledG, LOW);
+  digitalWrite(ledY, HIGH);
+  delay(5000);
+  digitalWrite(ledY, LOW);
+  digitalWrite(ledR, HIGH);
+  
+    //se o led vermelho da sinaleira ligar ele cai dentro do if
+  if(ledR == 2){
+    //se tiver ligado o vermelho da sinaleira ele liga o verde da bicicleta por 10 segundos
+  digitalWrite(ledGreenBi, HIGH);
+  digitalWrite(ledRedBi, LOW);  
+  delay(10000);
+  //desliga o verde  e religa o vermelho da bicicleta 
+  digitalWrite(ledGreenBi, LOW);
+  digitalWrite(ledRedBi, HIGH);  
+    }
+  delay(5000);
+}
