@@ -1,28 +1,16 @@
 int rele1 = 2;
 int rele2 = 3;
 int rele3 = 4;
-
 int sensorBoia = 5;
-
-
-
-
 void setup() {
-  // put your setup code here, to run once:
-
   Serial.begin(9600);
   pinMode(rele1, OUTPUT);
   pinMode(rele2, OUTPUT);
   pinMode(rele3, OUTPUT);
-
   pinMode(sensorBoia, INPUT_PULLUP);
-
 }
-
 void loop() {
-
   int estado = digitalRead (sensorBoia);
-  
 if(estado == 1){//testa pra ver se o sensor de nivel está com agua
   if(!Serial.available()){
     Start:
@@ -53,9 +41,6 @@ if(estado == 1){//testa pra ver se o sensor de nivel está com agua
               goto Start;
              }
        }
-      
-     
-      
      }
      if (c == 2){
       Serial.println("Colocando produto 2 . . . ");//se a pessoa escolheu o produto 2 liga o rele por 2 seg
@@ -78,7 +63,6 @@ if(estado == 1){//testa pra ver se o sensor de nivel está com agua
               goto Start;
              }
        }
-      
      }
      if (c == 3){
        if(!Serial.available()){//escolhe se quer ligar ou ir pro inicio
@@ -86,8 +70,6 @@ if(estado == 1){//testa pra ver se o sensor de nivel está com agua
        Serial.println("1 - Ligar Protótipo");
        Serial.println("2 - Voltar Para o inicio");
        int on = Serial.read();
-       
-
              if(on == 1){
               Serial.println("Ligando Protótipo . . . ");
               digitalWrite(rele1,HIGH);
@@ -98,11 +80,7 @@ if(estado == 1){//testa pra ver se o sensor de nivel está com agua
               goto Start;
              }
        }
-      
      }
-    }
-  
+    }  
 }
-  
-  
 }
